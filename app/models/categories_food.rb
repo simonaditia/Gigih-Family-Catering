@@ -1,0 +1,2 @@
+class CategoriesFood < ApplicationRecord
+end
