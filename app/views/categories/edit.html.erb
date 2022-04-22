@@ -1,7 +1,21 @@
-<h3>Edit <%= @category.name %></h3>
-<%= form_with model: @category do |form| %>
-  <%= form.text_field :name, placeholder: "name" %>
-  <%= form.submit %>
-<% end %>
-<br>
-<button><%= link_to 'Back', :back %></button>
+<%= render "navbar" %>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="mx-auto mb-3"><h1>Edit Category</h1></div>
+  </div>
+
+  <%= render "form", category: @category %>
+
+  <br>
+
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto">
+          <%= link_to "Show this category", @category, class: "btn btn-secondary" %>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
