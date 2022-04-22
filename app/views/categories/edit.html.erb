@@ -1,0 +1,7 @@
+<h3>Edit <%= @category.name %></h3>
+<%= form_with model: @category do |form| %>
+  <%= form.text_field :name, placeholder: "name" %>
+  <%= form.submit %>
+<% end %>
+<br>
+<button><%= link_to 'Back', :back %></button>

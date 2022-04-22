@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources :foods
+  resources :categories
+  # get 'categories/index'
+  # get 'categories/show'
+  # get 'categories/new'
+  # get 'categories/edit'  
   # get 'foods/index'
   # get 'foods/show'
   # get 'foods/new'
