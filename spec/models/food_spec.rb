@@ -52,4 +52,15 @@ RSpec.describe Food, type: :model do
     
     expect(food.errors[:price]).to include("is not a number")
   end
+
+  it 'is invalid when price is below 0.01' do
+    food = Food.new(
+      name: 'Nasi Uduk',
+      price: 0,
+      description: 'Betawi style steamed rice cooked in coconut milk. Delicious!'
+    )
+
+    food.valid?
+    expect(food.errors[:price]).to include("must be greater than or equal to 0.01")
+  end
 end
