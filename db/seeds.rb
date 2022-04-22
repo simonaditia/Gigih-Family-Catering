@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Food.create(name: "Rendang", price: 30000, description: "Rendang adalah salah satu makanan khas Indonesia dari wilayah Sumatera Barat")
+Food.create(name: "Treacle tart", price: 50000, description: "Treacle tart adalah makanan penutup tradisional Inggris")
+Food.create(name: "Fettuccine Alfredo", price: 80000, description: "Fettuccine Alfredo adalah hidangan pasta Italia dari fettuccine segar yang ditaburi mentega dan keju Parmesan")
