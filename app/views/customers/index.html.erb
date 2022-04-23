@@ -1,14 +1,67 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Customers</h1>
-
-<div id="customers">
-  <% @customers.each do |customer| %>
-    <%= render customer %>
-    <p>
-      <%= link_to "Show this customer", customer %>
-    </p>
-  <% end %>
+<%= render "navbar" %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="mx-auto">
+      <p style="color: green"><%= notice %></p>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between mt-1">
+    <div class="">
+      <%= link_to "New customer", new_customer_path, class: "btn btn-success" %>
+    </div>
+    <div class="">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Print Name
+      </button>
+    </div>
+  </div>
+  <div id="customers" class="mt-2 mb-5">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% 
+        i = 0
+        @customers.each do |customer| 
+        %>
+          <tr>
+            <td><%= i += 1 %></td>
+            <td><%= customer.name %></td>
+            <td><%= customer.email %></td>
+            <td><%= customer.phone %></td>
+            <td><%= link_to "Detail", customer %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
 </div>
 
-<%= link_to "New customer", new_customer_path %>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h5 class="modal-title" id="exampleModalLabel">All customers</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% @customers.each do |customer| %>
+          <p><%= customer.name %></p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

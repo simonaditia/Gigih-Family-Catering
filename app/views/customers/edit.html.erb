@@ -1,10 +1,21 @@
-<h1>Editing customer</h1>
+<%= render "navbar" %>
 
-<%= render "form", customer: @customer %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="mx-auto mb-3"><h1>Edit Customer</h1></div>
+  </div>
 
-<br>
+  <%= render "form", customer: @customer %>
 
-<div>
-  <%= link_to "Show this customer", @customer %> |
-  <%= link_to "Back to customers", customers_path %>
+  <br>
+
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto">
+          <%= link_to "Show this customer", @customer, class: "btn btn-secondary" %>          
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
