@@ -2,6 +2,10 @@ class OrderDetail < ApplicationRecord
     belongs_to :order
     belongs_to :food
 
+    validates :order_id, presence: true
+    validates :food_id, presence: true
+    validates :quantity, presence: true, numericality: true
+
     before_create :find_food_price
 
     def find_food_price
