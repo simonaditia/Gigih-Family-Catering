@@ -1,9 +1,7 @@
-<h1>New order detail</h1>
-
-<%= render "form", order_detail: @order_detail %>
-
-<br>
-
-<div>
-  <%= link_to "Back to order details", order_details_path %>
+<%= render "navbar" %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="mx-auto mb-3"><h1>New Order Detail</h1></div>
+  </div>
+  <%= render "form", order_detail: @order_detail %>
 </div>

@@ -4,7 +4,7 @@ RSpec.describe "order_details/show", type: :view do
   before(:each) do
     @order_detail = assign(:order_detail, OrderDetail.create!(
       order_id: "Order",
-      menu_id: "Menu",
+      food_id: "Menu",
       price: 2,
       quantity: 3
     ))

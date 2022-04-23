@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :order_id, style: "display: block" %>
-    <%= form.text_field :order_id %>
-  </div>
-
-  <div>
-    <%= form.label :menu_id, style: "display: block" %>
-    <%= form.text_field :menu_id %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="row">    
+    <div class="card col-md-8 mx-auto">
+      <div class="card-body">
+        <form>
+          <div class="d-flex justify-content-end">
+          <%= link_to "Back to order", :back, class: "btn-sm btn-secondary " %>
+          </div>
+          <div class="mb-3 mt-2">
+            <%= form.hidden_field :order_id, class: "form-control", value: session[:order_id] %>
+            <%= form.label :food_id, style: "display: block", class: "form-label" %>
+            <%= form.select :food_id, Food.all.pluck(:name, :id), {prompt: 'Select food'}, {class: "form-control", id: "food"} %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :quantity, style: "display: block", class: "form-label" %>
+            <%= form.number_field :quantity, class: "form-control" %>
+          </div>       
+          <div>
+            <%= form.submit :submit, class: "btn btn-primary" %>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 <% end %>

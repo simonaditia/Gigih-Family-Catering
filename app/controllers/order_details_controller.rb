@@ -3,7 +3,7 @@ class OrderDetailsController < ApplicationController
 
   # GET /order_details or /order_details.json
   def index
-    @order_details = OrderDetail.all
+    @order_details = params[:id].nil? ? OrderDetail.all : OrderDetail.by_order_id(params[:id])
   end
 
   # GET /order_details/1 or /order_details/1.json
@@ -65,6 +65,6 @@ class OrderDetailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_detail_params
-      params.require(:order_detail).permit(:order_id, :menu_id, :price, :quantity)
+      params.require(:order_detail).permit(:order_id, :food_id, :price, :quantity)
     end
 end

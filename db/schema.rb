@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2022_04_23_131552) do
 
   create_table "order_details", force: :cascade do |t|
     t.string "order_id"
-    t.string "menu_id"
+    t.string "food_id"
     t.integer "price"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false

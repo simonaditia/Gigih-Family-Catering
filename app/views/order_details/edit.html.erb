@@ -1,10 +1,21 @@
-<h1>Editing order detail</h1>
+<%= render "navbar" %>
 
-<%= render "form", order_detail: @order_detail %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="mx-auto mb-3"><h1>Edit Order Detail</h1></div>
+  </div>
 
-<br>
+  <%= render "form", order_detail: @order_detail, category: @category %>
 
-<div>
-  <%= link_to "Show this order detail", @order_detail %> |
-  <%= link_to "Back to order details", order_details_path %>
+  <br>
+
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto">
+          <%= link_to "Show this order_detail", @order_detail, class: "btn btn-secondary" %>          
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
