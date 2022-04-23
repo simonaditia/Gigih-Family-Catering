@@ -57,6 +57,10 @@ class OrdersController < ApplicationController
     end
   end
 
+  def report
+    @reports = params[:email].nil? ? Order.report_today : Order.find_by_email(params[:email])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order

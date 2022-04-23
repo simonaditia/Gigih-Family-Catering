@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :foods
   resources :categories
+  get 'reports', to: 'orders#report'
   # get 'categories/index'
   # get 'categories/show'
   # get 'categories/new'
