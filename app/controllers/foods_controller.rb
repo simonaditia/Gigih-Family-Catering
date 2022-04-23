@@ -1,10 +1,12 @@
 class FoodsController < ApplicationController
+  before_action :set_food, only: %i[ show edit update destroy ]
+
   def index
-    @foods = Food.all
+    @foods = params[:id].nil? ? Food.all : Food.by_id(params[:id])
   end
 
   def show
-    @food = Food.find(params[:id])
+    @food = Food.find(params[:id])    
   end
 
   def new
@@ -12,9 +14,17 @@ class FoodsController < ApplicationController
   end
 
   def create
-    food = Food.create(params.require(:food).permit(:name, :price, :description))
+    @food = Food.new(food_params)
 
-    redirect_to foods_path
+    respond_to do |format|
+      if @food.save
+        format.html {redirect_to foods_path(@food), notice: "Food was successfully created"}
+        format.json {render :show, status: :created, location: @food}
+      else
+        format.html {render :new, status: :unprocessable_entity}
+        format.json {render json: @food.errors, status: :unprocessable_entity}
+      end
+    end
   end
 
   def edit
@@ -23,8 +33,16 @@ class FoodsController < ApplicationController
 
   def update
     @food = Food.find(params[:id])
-    @food.update(resource_params)
-    redirect_to foods_path
+
+    respond_to do |format|
+      if @food.update(food_params)
+        format.html {redirect_to foods_path(@food), notice: "Food was successfully updated"}
+        format.json {render :show, status: :ok, location: @food}
+      else
+        format.html {render :edit, status: :unprocessable_entity}
+        format.json {render json: @food.errors, status: :unprocessable_entity}
+      end
+    end
   end
 
   def resource_params
@@ -35,5 +53,14 @@ class FoodsController < ApplicationController
     food = Food.find(params[:id])
     food.destroy
     redirect_to foods_path
+  end
+
+  private
+  def set_food
+    @food = Food.find(params[:id])
+  end
+
+  def food_params
+    params.fetch(:food, {}).permit(:name, :description, :price, category: [])
   end
 end

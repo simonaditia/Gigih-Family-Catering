@@ -36,6 +36,10 @@
             <label class="form-label">Description</label>
             <input type="text" class="form-control" value="<%= @food.description%>" readonly>            
           </div>
+          <div class="mb-3">
+            <label class="form-label">Category</label>
+            <input type="text" class="form-control" value="<%= @food.category%>" readonly>            
+          </div>
           <div class="d-flex justify-content-between">
             <div class="">
               <%= link_to "Edit this food", edit_food_path(@food), class: "btn btn-warning" %>

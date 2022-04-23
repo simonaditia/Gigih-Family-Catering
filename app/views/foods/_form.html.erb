@@ -30,6 +30,13 @@
             <%= form.label :description, style: "display: block", class: "form-label" %>
             <%= form.text_area :description, class: "form-control" %>
           </div>
+          <%= form.label :category, style: "display: block" %>
+          <div class="mb-3">
+            <% Category.all.each do |c| %>
+              <%= form.check_box :category, {multiple: true}, c.name, nil %>
+              <%= form.label c.name %>
+            <% end %>
+          </div>
           <div>
             <%= form.submit :submit, class: "btn btn-primary" %>
           </div>
