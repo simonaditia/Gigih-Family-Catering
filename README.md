@@ -1,3 +1,21 @@
+# Gigih-Family-Catering
+```bash
+bundle install
+```
+
+```bash
+rails s
+```
+
+rspec
+```bash
+rspec -fd
+```
+or
+```bash
+bundle exec rspec -fd
+```
+
 # Rails on Replit
 
 This is a template to get you started with Rails on Replit. It's ready to go so you can just hit run and start coding!
