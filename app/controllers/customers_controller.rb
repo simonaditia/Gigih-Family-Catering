@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
 
   # GET /customers or /customers.json
   def index
-    @customers = Customer.all
+    @customers = params[:id].nil? ? Customer.all : Customer.by_id(params[:id])
   end
 
   # GET /customers/1 or /customers/1.json
