@@ -16,6 +16,42 @@ or
 bundle exec rspec -fd
 ```
 
+## URL Page
+url = https://gigih-family-catering-simon-aditiaadi.gojek22.repl.co/
+
+Foods
+- url/foods
+- url/foods/new
+- url/foods/:id
+- url/foods/:id/edit
+
+Categoires
+- url/categoires
+- url/categoires/new
+- url/categoires/:id
+- url/categoires/:id/edit
+
+Customers
+- url/customers
+- url/customers/new
+- url/customers/:id
+- url/customers/:id/edit
+
+Order
+- url/order
+- url/order/new
+- url/order/:id
+- url/order/:id/edit
+
+Order Details
+- url/order_details
+- url/order_details/new
+- url/order_details/:id
+- url/order_details/:id/edit
+
+Reports
+- url/reports
+
 # Rails on Replit
 
 This is a template to get you started with Rails on Replit. It's ready to go so you can just hit run and start coding!
