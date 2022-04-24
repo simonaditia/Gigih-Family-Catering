@@ -4,7 +4,7 @@ RSpec.describe "customers/edit", type: :view do
   before(:each) do
     @customer = assign(:customer, Customer.create!(
       name: "MyString",
-      email: "MyString",
+      email: "MyString@gmail.com",
       phone: "MyString"
     ))
   end

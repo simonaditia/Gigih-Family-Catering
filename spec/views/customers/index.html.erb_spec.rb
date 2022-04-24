@@ -5,12 +5,12 @@ RSpec.describe "customers/index", type: :view do
     assign(:customers, [
       Customer.create!(
         name: "Name",
-        email: "Email",
+        email: "Email@gmail.com",
         phone: "Phone"
       ),
       Customer.create!(
         name: "Name",
-        email: "Email",
+        email: "Email@gmail.com",
         phone: "Phone"
       )
     ])
@@ -19,7 +19,7 @@ RSpec.describe "customers/index", type: :view do
   it "renders a list of customers" do
     render
     assert_select "tr>td", text: "Name".to_s, count: 2
-    assert_select "tr>td", text: "Email".to_s, count: 2
+    assert_select "tr>td", text: "Email@gmail.com".to_s, count: 2
     assert_select "tr>td", text: "Phone".to_s, count: 2
   end
 end
