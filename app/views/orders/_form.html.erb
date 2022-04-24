@@ -24,7 +24,7 @@
           </div>
           <div class="mb-3">
             <%= form.label :order_date, style: "display: block", class: "form-label" %>
-            <%= form.date_field :order_date, class: "form-control" %>
+            <%= form.date_field :order_date, value: (form.object.order_date || Time.now.strftime('%Y-%m-%d')), class: "form-control" %>
           </div>
           <div class="mb-3">
             <%= form.label :status, style: "display: block", class: "form-label" %>
