@@ -11,10 +11,18 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
-  def create
-    category = Category.create(params.require(:category).permit(:name))
+  def create  
+    @category = Category.new(category_params)
 
-    redirect_to categories_path
+    respond_to do |format|
+      if @category.save
+        format.html { redirect_to category_url(@category), notice: "Category was successfully created." }
+        format.json { render :show, status: :created, location: @category }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @category.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -23,8 +31,15 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-    @category.update(resource_params)
-    redirect_to categories_path
+    respond_to do |format|
+      if @category.update(category_params)
+        format.html { redirect_to category_url(@category), notice: "Category was successfully updated." }
+        format.json { render :show, status: :ok, location: @category }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @category.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def resource_params
@@ -35,5 +50,10 @@ class CategoriesController < ApplicationController
     category = Category.find(params[:id])
     category.destroy
     redirect_to categories_path
+  end
+  
+  private
+  def category_params
+    params.fetch(:category, {}).permit(:name)
   end
 end
