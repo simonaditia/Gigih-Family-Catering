@@ -32,9 +32,9 @@
             <label class="form-label">Price</label>
             <input type="number" class="form-control" value="<%= @food.price%>" readonly>            
           </div>
-          <div class="mb-3">
+          <div>
             <label class="form-label">Description</label>
-            <input type="text" class="form-control" value="<%= @food.description%>" readonly>            
+            <textarea class="form-control" readonly><%= @food.description%></textarea>
           </div>
           <div class="mb-3">
             <label class="form-label">Category</label>
