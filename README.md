@@ -38,10 +38,10 @@ Customers
 - url/customers/:id/edit
 
 Order
-- url/order
-- url/order/new
-- url/order/:id
-- url/order/:id/edit
+- url/orders
+- url/orders/new
+- url/orders/:id
+- url/orders/:id/edit
 
 Order Details
 - url/order_details
